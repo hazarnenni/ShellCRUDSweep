@@ -11,6 +11,12 @@ ENTITY=$1
 # Navigate to the Symfony project directory
 cd "$(dirname "$0")"
 
+# Install missing packages
+composer require orm symfony/form symfony/validator --no-update
+
+# Update dependencies
+composer update
+
 # Clear the cache (optional)
 php bin/console cache:clear --env=dev
 
